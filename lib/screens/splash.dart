@@ -18,21 +18,23 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     init();
-    Timer(Duration(seconds: 3), () {
-      chuckStater();
-    });
+// chuckStater();
     super.initState();
   }
 
   init() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    pref = prefs;
+    await SharedPreferences.getInstance().then((prefs) {
+      pref = prefs;
+      chuckStater();
+    });
   }
 
   void chuckStater() async {
     bool testPref = pref.getBool(isFirstKeyPref) ?? false;
     if (testPref) {
-      Navigator.pushReplacementNamed(context, WebView.rooteName);
+      Timer(Duration(seconds: 3), () {
+        Navigator.pushReplacementNamed(context, WebView.rooteName);
+      });
     } else {
       Navigator.pushReplacementNamed(context, Starters.rooteName);
     }
@@ -81,17 +83,15 @@ class _SplashState extends State<Splash> {
   Widget buildBy() {
     return Padding(
       padding: EdgeInsets.all(15.0),
-      child: RichText(
-        text: TextSpan(
-            text: "Build",
-            style: GoogleFonts.dMSans(
-              textStyle: TextStyle(
-                color: Colors.grey[700],
-              ),
-            ),
-            children: [
-              TextSpan(text: " by uptodate"),
-            ]),
+      child: Text(
+        'Build by Uptodate Developers',
+        style: GoogleFonts.dMSans(
+          textStyle: TextStyle(
+            fontSize: 10.0,
+            fontWeight: FontWeight.w600,
+            color: Colors.grey[800],
+          ),
+        ),
       ),
     );
   }

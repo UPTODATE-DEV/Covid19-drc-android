@@ -1,10 +1,6 @@
-// import 'package:flutter/material.dart';
 import 'package:covid19_drc/screens/splash.dart';
-import 'package:covid19_drc/screens/starters/start_one.dart';
 import 'package:covid19_drc/screens/starters/start_page.dart';
-import 'package:covid19_drc/screens/starters/start_two.dart';
 import 'package:covid19_drc/screens/web_view.dart';
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,7 +11,8 @@ void main() {
       statusBarIconBrightness: Brightness.light));
 
   SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+    [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
+  );
 
   runApp(Covid19());
 }

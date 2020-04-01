@@ -1,7 +1,6 @@
 import 'package:covid19_drc/screens/index.dart';
 import 'package:covid19_drc/screens/splash.dart';
 import 'package:covid19_drc/screens/starters/start_four.dart';
-import 'package:covid19_drc/screens/web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -128,7 +127,7 @@ class _StartersState extends State<Starters> {
         ),
         onPressed: () {
           pref.setBool(isFirstKeyPref, true);
-          Navigator.pushNamed(context, WebView.rooteName);
+          Navigator.pushReplacementNamed(context, Splash.rooteName);
         },
       ),
     );
